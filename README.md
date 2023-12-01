@@ -1,4 +1,4 @@
-# Advent of code 2022
+# Advent of code 2023
 
 | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 |-----|-----|-----|-----|-----|-----|-----|
