@@ -1,4 +1,3 @@
-import { reverse } from './../libs/string/functions';
 import { NEWLINE } from '../libs/global'
 
 export function challenge1(input: string) {
