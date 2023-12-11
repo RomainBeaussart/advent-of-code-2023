@@ -17,7 +17,7 @@ describe('Day 03', () => {
 
     describe('Challenge 2', () => {
         it('should return the sum of number with adjacent to a symbol', () => {
-            const result = challenge2(testInput);
+            const result = challenge2(input);
             expect(result).equal(451490);
         })
     })

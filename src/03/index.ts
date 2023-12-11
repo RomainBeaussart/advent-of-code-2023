@@ -92,9 +92,9 @@ function processMapChal1(map: string[]) {
 function getPartNumbers(map: string[], { x, y }: { x: number, y: number }): number[] {
     const numbers = processMapChal1(map)
     const filteredNumbers = numbers.filter(
-        num => num.partNumbers.some(
+        num => num.partNumbers.filter(
             partNumber => partNumber.x === x && partNumber.y === y
-        )
+        ).length > 0
     )
     return filteredNumbers.map(num => num.number)
 }
