@@ -3,3 +3,5 @@ node_modules/*
 .vscode/*
 
 **/input.txt
+
+test-*.json
