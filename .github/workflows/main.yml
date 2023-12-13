@@ -8,6 +8,10 @@ on:
 
 jobs:
     test-libs:
+      permissions:
+        id-token: write
+        contents: read
+        checks: write
       name: Test libraries
       runs-on: ubuntu-latest
       steps:
