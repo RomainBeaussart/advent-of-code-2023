@@ -4,25 +4,27 @@ import { sum } from './functions';
 import { avg } from './functions';
 import { asc } from './functions';
 import { desc } from './functions';
+import { chunk } from './functions';
 
 declare global {
     interface Array<T> {
         /**
          * 
          * @param count The number of max values to return
-         */
-        max(count: number): number[];
-        max(): number;
-        /**
-         * 
-         * @param count The number of min values to return
-         */
-        min(count: number): number[];
-        min(): number;
-        sum(): number;
-        avg(): number;
-        asc(): number[];
-        desc(): number[];
+        */
+       max(count: number): number[];
+       max(): number;
+       /**
+        * 
+        * @param count The number of min values to return
+       */
+      min(count: number): number[];
+      min(): number;
+      chunk<T>(size: number): T[][];
+      sum(): number;
+      avg(): number;
+      asc(): number[];
+      desc(): number[];
     }
 }
 
@@ -52,4 +54,8 @@ Array.prototype.asc = function (this: number[]): number[] {
 
 Array.prototype.desc = function (this: number[]): number[] {
     return desc(this);
+}
+
+Array.prototype.chunk = function<T> (this: any[], size: number): T[][] {
+    return chunk(this, size);
 }

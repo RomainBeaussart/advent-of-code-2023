@@ -31,7 +31,7 @@ jobs:
   test-days:
     strategy:
       matrix:
-        days: ['01', '02', '03', '04']
+        days: ['01', '02', '03', '04', '05']
     permissions:
       id-token: write
       contents: read

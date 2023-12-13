@@ -36,3 +36,7 @@ export const asc = (array: number[]): number[] => {
 export const desc = (array: number[]): number[] => {
     return [...array].sort(descending);
 }
+
+export const chunk = (array: any[], size: number): any[][] => {
+	return array.reduce((acc, _, i) => (i % size) ? acc : [...acc, array.slice(i, i + size)], []);
+}
