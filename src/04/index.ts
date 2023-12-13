@@ -25,14 +25,10 @@ export function challenge1(input: string) {
 
 
 export function challenge2(input: string): number[] {
-    let result = input.split(NEWLINE)
+    const cards = input.split(NEWLINE)
+    return cards
         .map(computeScore)
-
-    result = result
         .map(Math.log2) // [4, 2, 2, 1, 0, 0]
-
-
-    result = result
         .reduce((acc, curr, index) => {
             if (curr < 0) {
                 return acc
@@ -42,8 +38,6 @@ export function challenge2(input: string): number[] {
                 acc[index + i] = acc[index + i] + amountOfCopy || amountOfCopy + 1
             }
             return acc
-        }, Array(result.length).fill(1))
-        
-    return result
+        }, Array(cards.length).fill(1))
 
 }
