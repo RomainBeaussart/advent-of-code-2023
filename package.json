@@ -6,7 +6,7 @@
   "scripts": {
     "test:libs": "mocha -r ts-node/register --reporter json src/libs/**/**.spec.ts > test-libs.json",
     "start:dev:01": "nodemon --exec ts-node src/01/index.ts",
-    "test:01": "mocha -r ts-node/register src/01/specs/**.spec.ts",
+    "test:01": "mocha -r ts-node/register --reporter json src/01/specs/**.spec.ts > test-day-01.json",
     "start:dev:02": "nodemon --exec ts-node src/02/index.ts",
     "test:02": "mocha -r ts-node/register src/02/specs/**.spec.ts",
     "start:dev:03": "nodemon --exec ts-node src/03/index.ts",

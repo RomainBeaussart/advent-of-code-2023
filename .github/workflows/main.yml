@@ -28,3 +28,26 @@ jobs:
           name: Libraries Test Report
           path: test-libs.json
           reporter: mocha-json
+
+
+    test-day-01:
+      permissions:
+        id-token: write
+        contents: read
+        checks: write
+      name: Test Day O1
+      runs-on: ubuntu-latest
+      steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        run: yarn test:01
+
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        with:
+          name: Day 01 Test Report
+          path: test-day-01.json
+          reporter: mocha-json
