@@ -7,47 +7,45 @@ on:
         branches: [ main ]
 
 jobs:
-    test-libs:
-      permissions:
-        id-token: write
-        contents: read
-        checks: write
-      name: Test libraries
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install
-      - name: Run tests
-        run: yarn -s test:libs > test-libs.json
+    
+  test-libs:
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
+    name: Test libraries
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: yarn install
+    - name: Run tests
+      run: yarn -s test:libs > test-libs.json  
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Libraries Test Report
+        path: test-libs.json
+        reporter: mocha-json
 
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Libraries Test Report
-          path: test-libs.json
-          reporter: mocha-json
-
-
-    test-day-01:
-      permissions:
-        id-token: write
-        contents: read
-        checks: write
-      name: Test Day 01
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn install
-      - name: Run tests
-        run: yarn -s test:01 > test-day-01.json
-
-      - name: Test Report
-        uses: dorny/test-reporter@v1
-        if: success() || failure()
-        with:
-          name: Day 01 Test Report
-          path: test-day-01.json
-          reporter: mocha-json
+  test-day-01:
+    permissions:
+      id-token: write
+      contents: read
+      checks: write
+    name: Test Day 01
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install dependencies
+      run: yarn install
+    - name: Run tests
+      run: yarn -s test:01 > test-day-01.json  
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
+      with:
+        name: Day 01 Test Report
+        path: test-day-01.json
+        reporter: mocha-json
