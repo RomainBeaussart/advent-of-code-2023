@@ -1,7 +1,10 @@
-export const splitToNumbers = (str: string, separator = ',') => {
-    return str.split(separator).map((str: string) => {
-        return Number(str);
-    });
+export const splitToNumbers = (str: string, separator = ',', options: { allowEmpty?: boolean} = { allowEmpty: false }) => {
+    const { allowEmpty } = options;
+    const numbers = str.split(separator).map(x => +x);
+    if (!allowEmpty) {
+        return numbers.filter(x => !isNaN(x));
+    }
+    return numbers;
 }
 
 export const isLowerCase = (str: string) => {

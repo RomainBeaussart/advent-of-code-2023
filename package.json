@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test:libs": "mocha -r ts-node/register src/libs/**/**.spec.ts",
+    "test:libs": "mocha -r ts-node/register --reporter json src/libs/**/**.spec.ts > test-libs.json",
     "start:dev:01": "nodemon --exec ts-node src/01/index.ts",
     "test:01": "mocha -r ts-node/register src/01/specs/**.spec.ts",
     "start:dev:02": "nodemon --exec ts-node src/02/index.ts",

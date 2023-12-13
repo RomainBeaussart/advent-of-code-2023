@@ -13,7 +13,7 @@ declare global {
          * @example
          * '1,2,3'.splitToNumbers() // [1, 2, 3]
          */
-        splitToNumbers(separator?: | string): Array<number>;
+        splitToNumbers(separator?: | string): Array<number | null>;
         isLowerCase(): boolean;
         isUpperCase(): boolean;
         toFigure(): string;
@@ -21,8 +21,14 @@ declare global {
     }
 }
 
-String.prototype.splitToNumbers = function (this: | string, separator: | string) {
-    return splitToNumbers(this, separator);
+String.prototype.splitToNumbers = function (this: | string, separator: | string, options?: {
+    /**
+     * 
+     * @default false
+     */
+    allowEmpty: boolean | undefined;
+}) {
+    return splitToNumbers(this, separator, options);
 }
 
 String.prototype.isLowerCase = function (this: | string) {
