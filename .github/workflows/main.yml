@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run tests
-        run: yarn test:libs > test-libs.json
+        run: yarn -s test:libs > test-libs.json
 
       - name: Test Report
         uses: dorny/test-reporter@v1
@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Run tests
-        run: yarn test:01
+        run: yarn -s test:01 > test-day-01.json
 
       - name: Test Report
         uses: dorny/test-reporter@v1
