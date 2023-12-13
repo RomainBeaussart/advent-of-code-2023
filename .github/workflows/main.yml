@@ -21,10 +21,12 @@ jobs:
         with:
           name: test-libs
           path: test-libs.json  
+
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
+          artifact: test-libs
           name: Mocha Tests
           path: test-libs.json
           reporter: mocha-json
