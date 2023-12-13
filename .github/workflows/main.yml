@@ -16,17 +16,11 @@ jobs:
         run: yarn install
       - name: Run tests
         run: yarn test:libs
-      - name: Upload coverage
-        uses: actions/upload-artifact@v2
-        with:
-          name: test-libs
-          path: test-libs.json  
 
       - name: Test Report
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          artifact: test-libs
-          name: Mocha Tests
+          name: Libraries Test Report
           path: test-libs.json
           reporter: mocha-json
