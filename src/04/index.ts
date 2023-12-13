@@ -38,7 +38,6 @@ export function challenge1(input: string) {
         result += winningAmount;
     }
 
-    console.log(result);
     return input.split(NEWLINE)
         .map(computeScore)
         .sum()

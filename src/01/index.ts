@@ -14,7 +14,6 @@ function calibrationValue(input: string): number {
     }
     let result = `${numbersOfString[0]}${numbersOfString?.at(-1)}`
 
-    console.log(result);
     return +result
 }
 
