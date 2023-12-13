@@ -15,10 +15,9 @@ describe('Day 04', () => {
     })
 
     describe('Challenge 2', () => {
-        it('should return total amount of ', () => {
+        it('should return total amount of scratchcard', () => {
             const result = challenge2(testInput);
             expect(result).deep.equal([1, 2, 4, 8, 14, 1]);
-            debugger
         })
     })
 })
