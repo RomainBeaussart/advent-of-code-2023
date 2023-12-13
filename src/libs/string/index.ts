@@ -13,7 +13,13 @@ declare global {
          * @example
          * '1,2,3'.splitToNumbers() // [1, 2, 3]
          */
-        splitToNumbers(separator?: | string): Array<number | null>;
+        splitToNumbers(separator?: | string, options?: {
+            /**
+             * 
+             * @default false
+             */
+            allowEmpty: boolean | undefined;
+        }): Array<number | null>;
         isLowerCase(): boolean;
         isUpperCase(): boolean;
         toFigure(): string;

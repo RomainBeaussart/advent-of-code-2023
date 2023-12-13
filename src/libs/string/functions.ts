@@ -1,6 +1,6 @@
 export const splitToNumbers = (str: string, separator = ',', options: { allowEmpty?: boolean} = { allowEmpty: false }) => {
     const { allowEmpty } = options;
-    const numbers = str.split(separator).map(x => +x);
+    const numbers = str.split(separator).filter(x => allowEmpty ? true : !!x).map(x => +x);
     if (!allowEmpty) {
         return numbers.filter(x => !isNaN(x));
     }

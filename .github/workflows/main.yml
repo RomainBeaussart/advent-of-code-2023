@@ -1,10 +1,10 @@
 name: Tests
 
 on:
-    push:
-        branches: [ main ]
-    pull_request:
-        branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   test-libs:
@@ -30,8 +30,8 @@ jobs:
 
   test-days:
     strategy:
-        matrix:
-          days: ['01', '02', '03', '04']
+      matrix:
+        days: ['01', '02', '03', '04']
     permissions:
       id-token: write
       contents: read
