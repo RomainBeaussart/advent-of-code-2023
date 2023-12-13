@@ -16,8 +16,7 @@ describe('Day 04', () => {
 
     describe('Challenge 2', () => {
         it('should return the sum of scores of each cards', () => {
-            const result = challenge2(input);
-            const result2 = result.sum()
+            const result = challenge2(testInput);
             expect(result).deep.equal([1, 2, 4, 8, 14, 1]);
             debugger
         })
