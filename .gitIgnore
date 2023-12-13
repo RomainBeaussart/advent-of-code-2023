@@ -4,4 +4,4 @@ node_modules/*
 
 **/input.txt
 
-test*.json
+test-*.json
