@@ -40,3 +40,25 @@ export const desc = (array: number[]): number[] => {
 export const chunk = (array: any[], size: number): any[][] => {
 	return array.reduce((acc, _, i) => (i % size) ? acc : [...acc, array.slice(i, i + size)], []);
 }
+
+export type groupByFunction<T> = ((obj: T) => string | number) | string;
+
+export const groupBy = <T>(array: T[], key?: groupByFunction<T>): { [key: string]: T[] } => {
+	return array.reduce((acc, item) => {
+		let value: any = '';
+		if (!key) {
+			value = item;
+		} else if (typeof key === 'string') {
+			value = (item as any)[key];
+		} else {
+			value = key(item);
+		}
+		
+		if (!acc[value]) {
+			acc[value] = [item];
+		} else {
+			acc[value].push(item);
+		}
+		return acc;
+	}, {} as { [key: string]: T[] });
+}

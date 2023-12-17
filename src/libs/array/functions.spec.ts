@@ -33,4 +33,9 @@ describe('Lib: Array functions', () => {
         const a: Array<number> = [1, 2, 3, 4, 5];
         expect(a.desc()).to.eql([5, 4, 3, 2, 1]);
     })
+
+    it('should return an object with grouped values', () => {
+        const a: Array<number> = [1, 2, 3, 4, 5];
+        expect(a.groupBy((x: number) => x % 2)).to.eql({ 0: [2, 4], 1: [1, 3, 5] });
+    })
 })

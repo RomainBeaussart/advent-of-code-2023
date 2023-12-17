@@ -5,6 +5,7 @@ import { avg } from './functions';
 import { asc } from './functions';
 import { desc } from './functions';
 import { chunk } from './functions';
+import { groupBy, groupByFunction } from './functions';
 
 declare global {
     interface Array<T> {
@@ -25,6 +26,7 @@ declare global {
       avg(): number;
       asc(): number[];
       desc(): number[];
+      groupBy<T>(key: groupByFunction<T>): { [key: string]: T[] };
     }
 }
 
@@ -58,4 +60,8 @@ Array.prototype.desc = function (this: number[]): number[] {
 
 Array.prototype.chunk = function<T> (this: any[], size: number): T[][] {
     return chunk(this, size);
+}
+
+Array.prototype.groupBy = function<T> (this: T[], key: groupByFunction<T>): { [key: string]: T[] } {
+    return groupBy(this, key);
 }
